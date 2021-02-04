@@ -119,7 +119,7 @@ bot.on("message", async message => {
 })
 
 
-bot.login(Process.env.token)
+bot.login(process.env.token)
 
 
 
