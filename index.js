@@ -32,7 +32,7 @@ bot.on('message', (message) => {
     let args = MessageArray.slice(1)
     if(!message.content.startsWith(prefix)) return;
     if(cmd == 'admin') {
-        message.channel.send(`Placeholder`);
+        message.channel.send(`Working...`);
     }
 })
 
