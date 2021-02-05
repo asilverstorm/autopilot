@@ -147,7 +147,7 @@ bot.on('messageReactionRemove', async (reaction, user) => {
 //Custom Status
 
 bot.on("ready", () =>{
-    client.user.setPresence({
+    bot.user.setPresence({
         status: "do not disturb",  //You can show online, idle....
         game: {
             name: "Watching over Silver-Studios | Bot under Construction",  //The message shown
