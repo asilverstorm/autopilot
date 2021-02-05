@@ -146,15 +146,9 @@ bot.on('messageReactionRemove', async (reaction, user) => {
 
 //Custom Status
 
-bot.on("ready", () =>{
-    bot.user.setPresence({
-        status: "dnd",
-        game: {
-            name: "Watching over Silver-Studios | Bot under Construction",
-            type: "PLAYING"
-        }
-    });
- });
+bot.on("ready", () => {
+    bot.user.setActivity('discord.js', { type: 'PLAYING', status: 'dnd', name: 'Watching over Silver-Studios | Bot under Construction' })
+})
 
 
  bot.login(process.env.token)
