@@ -116,6 +116,18 @@ bot.on("message", async message => {
         })
         
     }
+    if(cmd == 'reactionsetup2') {
+        let embed = new Discord.MessageEmbed()
+        .setTitle('Device Roles')
+        .setDescription('React with 🖥️, 📱, 🎮 to gain the respective device roles to show what you are mainly on!')
+        .setColor("BLUE")
+        bot.channels.cache.get(channelID).send(embed).then(sentEmbed => {
+            sentEmbed.react('🖥️')
+            sentEmbed.react('📱')
+            sentEmbed.react('🎮')
+        })
+        
+    }
 
 })
 
