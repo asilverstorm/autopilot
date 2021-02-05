@@ -146,8 +146,7 @@ bot.on('messageReactionRemove', async (reaction, user) => {
 
 //Custom Status
 
-client.on("ready", () =>{
-    console.log(`Logged in as ${client.user.tag}!`);
+bot.on("ready", () =>{
     client.user.setPresence({
         status: "do not disturb",  //You can show online, idle....
         game: {
