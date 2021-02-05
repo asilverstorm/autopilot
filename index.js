@@ -90,7 +90,7 @@ bot.on('guildMemberAdd', async (member, guild) => {
     .setDescription(`We are glad to have you here! Please head to <#${rules}> first and catch yourself up on how we do things around here. Never takes long and it makes sure you don't get in trouble in the future. Then, visit <#${verify}> and follow the instructions there so you can talk in our server. Finally, just head to <#${roles}> and assign yourself whatever you want.`)
     .setColor("GREEN")
     .setTimestamp()
-    .setFooter(`Thats it! Have fun! | User #`)
+    .setFooter(`Thats it! Have fun! | User #${member.guild.memberCount}`)
     .setThumbnail(`https://i.postimg.cc/66GfDvFQ/Png.png`)
     bot.channels.cache.get(channelID).send(`<@${member.id}>`)
     bot.channels.cache.get(channelID).send(embed)
@@ -147,7 +147,7 @@ bot.on('messageReactionRemove', async (reaction, user) => {
 //Custom Status
 
 bot.on("ready", () => {
-    bot.user.setActivity('discord.js', { type: 'PLAYING', status: 'dnd', name: 'Watching over Silver-Studios | Bot under Construction' })
+    bot.user.setActivity('Watching over Silver-Studios | Bot under ConstructionWatching over Silver-Studios | Bot under Construction', { type: 'PLAYING', status: 'dnd'})
 })
 
 
