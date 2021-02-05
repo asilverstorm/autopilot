@@ -1,7 +1,13 @@
-//Bot Code
+//-----------------------------------------------------------------------------------------------Bot Code
+
+
+//Required Constants
+
 const Discord = require('discord.js');
 const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
+
+//Getting Bot Ready
 
 bot.on('ready', () => {
     console.log('Bot Online');
@@ -24,45 +30,6 @@ bot.on('message', (message) => {
 })
 
 bot.on('message', (message) => {
-    if (message.author.bot) return;
-    if(message.channel.type !== 'text') return;
-    let prefix = '>';
-    let MessageArray = message.content.split(' ');
-    let cmd = MessageArray[0].slice(prefix.length)
-    let args = MessageArray.slice(1)
-    if(!message.content.startsWith(prefix)) return;
-    if(cmd == 'admin') {
-        message.channel.send(`Working...`);
-    }
-})
-
-bot.on('message', (message) => {
-    if (message.author.bot) return;
-    if(message.channel.type !== 'text') return;
-    let prefix = '>';
-    let MessageArray = message.content.split(' ');
-    let cmd = MessageArray[0].slice(prefix.length)
-    let args = MessageArray.slice(1)
-    if(!message.content.startsWith(prefix)) return;
-    if(cmd == 'cmds') {
-        message.channel.send(`Placeholder`);
-    }
-})
-
-bot.on('message', (message) => {
-    if (message.author.bot) return;
-    if(message.channel.type !== 'text') return;
-    let prefix = '>';
-    let MessageArray = message.content.split(' ');
-    let cmd = MessageArray[0].slice(prefix.length)
-    let args = MessageArray.slice(1)
-    if(!message.content.startsWith(prefix)) return;
-    if(cmd == 'staff') {
-        message.channel.send(`Placeholder`);
-    }
-})
-
-bot.on('message', (message) => {
     if (message.author.id !== '594371388228239370') return;
     if(message.channel.type !== 'text') return;
     let prefix = '>';
@@ -76,6 +43,7 @@ bot.on('message', (message) => {
         message.channel.send(`*Device Roles*\n-\n<@&631543640686067732>: __You mainly play on a gaming console__\n<@&631543559555645452>: __You mainly play on a mobile device__\n<@&631543445650931742>: __You mainly play on a desktop or laptop__\n\n*Region Roles*\n-\n<@&707954981348573259>: __You live in the US__\n<@&707955171640082432>: __You live in Europe__\n<@&707955415006183525>: __You live in an Oceania region__\n<@&707955552323633162>: __You live in South America__\n<@&707955059551371324>: __You live in Canada__\n<@&707955305908142116>: __You live in Asia__\n<@&707955454914986054>: __You live in Africa__\n<@&707955123174899806>: __You live in Mexico__\n\n:clipboard: **To apply for a role, please visit our website and fill out an application. Next, scroll down and give YOURSELF the relevant roles. Thanks, <@everyone>!**`);
     }
 })
+//Create Staff, Admin, and Cmds commands once ready.
 
 
 //Welcome Messaging
@@ -179,10 +147,8 @@ bot.on("ready", () => {
 })
 
 
- bot.login(process.env.token)
 
 
 
-
-
-
+//DO NOT TOUCH
+bot.login(process.env.token)
