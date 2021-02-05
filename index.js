@@ -1,6 +1,6 @@
 //Bot Code
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
 
 bot.on('ready', () => {
@@ -107,7 +107,7 @@ bot.on("message", async message => {
     let MessageArray = message.content.split(' ');
     let cmd = MessageArray[0].slice(prefix.length)
     let args = MessageArray.slice(1)
-    if(cmd == 'reactionsetup') {
+    if(cmd == 'reactionsetup1') {
         let embed = new Discord.MessageEmbed()
         .setTitle('Notifications Role')
         .setDescription('React with 🔔 to gain the Notifications role if you would like to get pinged for announcements and updates.')
@@ -120,6 +120,29 @@ bot.on("message", async message => {
 
 })
 
+bot.on('messageReactionAdd', async (reaction, user) => {
+    if (reaction.message.partial) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+    if (reaction.message.channel.id === '724391331132342353') {
+        if (reaction.emoji.name === '🔔') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('727590400046661694')
+        }
+    }
+})
+
+bot.on('messageReactionRemove', async (reaction, user) => {
+    if (reaction.message.partial) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+    if (reaction.message.channel.id === '724391331132342353') {
+        if (reaction.emoji.name === '🔔') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('727590400046661694')
+        }
+    }
+})
 
 bot.login(process.env.token)
 
