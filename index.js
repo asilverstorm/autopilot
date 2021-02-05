@@ -147,7 +147,7 @@ bot.on('messageReactionRemove', async (reaction, user) => {
 //Custom Status
 
 bot.on("ready", () => {
-    bot.user.setStatus('dnd', 'Watching over Silver-Studios | Bot under Construction')
+    bot.user.setActivity('Under Construction', {type: 'PLAYING'}, {status:'dnd'})
 })
 
 
