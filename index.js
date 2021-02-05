@@ -147,7 +147,7 @@ bot.on('messageReactionRemove', async (reaction, user) => {
 //Custom Status
 
 bot.on("ready", () => {
-    bot.user.setActivity('Under Construction', {type: 'PLAYING'}, {status:'dnd'})
+    bot.user.setActivity('Under Construction', {type: 'STREAMING'})
 })
 
 
