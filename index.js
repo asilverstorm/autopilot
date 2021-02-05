@@ -85,7 +85,6 @@ bot.on('guildMemberAdd', async (member, guild) => {
     let rules = '724391349192884224';
     let verify = '806269409702182953';
     let roles = '724391331132342353';
-    let member = guild.member
     let embed = new Discord.MessageEmbed()
     .setTitle(`Welcome to Silver-Studios! :wave:`)
     .setDescription(`We are glad to have you here! Please head to <#${rules}> first and catch yourself up on how we do things around here. Never takes long and it makes sure you don't get in trouble in the future. Then, visit <#${verify}> and follow the instructions there so you can talk in our server. Finally, just head to <#${roles}> and assign yourself whatever you want.`)
