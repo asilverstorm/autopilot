@@ -148,10 +148,10 @@ bot.on('messageReactionRemove', async (reaction, user) => {
 
 bot.on("ready", () =>{
     bot.user.setPresence({
-        status: "do not disturb",  //You can show online, idle....
+        status: "dnd",
         game: {
-            name: "Watching over Silver-Studios | Bot under Construction",  //The message shown
-            type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
+            name: "Watching over Silver-Studios | Bot under Construction",
+            type: "PLAYING"
         }
     });
  });
