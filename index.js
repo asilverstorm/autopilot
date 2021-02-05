@@ -99,17 +99,17 @@ bot.on("message", async message => {
     if(cmd == 'reactionsetup3') {
         let embed = new Discord.MessageEmbed()
         .setTitle('Region Roles')
-        .setDescription('React with  to gain the respective region roles to show where you are based in.')
+        .setDescription('React with  to gain the respective region roles to show where you are based in.\n')
         .setColor("YELLOW")
         bot.channels.cache.get(channelID).send(embed).then(sentEmbed => {
-            sentEmbed.react(':flag_us:')
-            //sentEmbed.react('')
-            //sentEmbed.react('')
-            //sentEmbed.react('')
-            //sentEmbed.react('')
-            //sentEmbed.react('')
-            //sentEmbed.react('')
-            //sentEmbed.react('')
+            sentEmbed.react('1️⃣')
+            sentEmbed.react('2️⃣')
+            sentEmbed.react('3️⃣')
+            sentEmbed.react('4️⃣')
+            sentEmbed.react('5️⃣')
+            sentEmbed.react('6️⃣')
+            sentEmbed.react('7️⃣')
+            sentEmbed.react('8️⃣')
         })
         
     }
