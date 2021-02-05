@@ -98,8 +98,7 @@ bot.on('guildMemberAdd', async ({member, guild}) => {
     .setTimestamp()
     .setFooter(`Thats it! Have fun! | User ${result}`)
     .setThumbnail(`https://i.postimg.cc/66GfDvFQ/Png.png`)
-    let user = member.id
-    bot.channels.cache.get(channelID).send(`<@${user}>`)
+    //bot.channels.cache.get(channelID).send(`<@${user}>`)
     bot.channels.cache.get(channelID).send(embed)
 })
 
