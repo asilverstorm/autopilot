@@ -80,7 +80,7 @@ bot.on('message', (message) => {
 
 //Welcome Messaging
 
-bot.on('guildMemberAdd', (member, content, guild) => {
+bot.on('guildMemberAdd', async ({member, guild}) => {
     let channelID = '734788902480510997';
     let rules = '724391349192884224';
     let verify = '806269409702182953';
