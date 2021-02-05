@@ -80,28 +80,25 @@ bot.on('message', (message) => {
 
 //Welcome Messaging
 
-bot.on('guildMemberAdd', async ({member, guild}) => {
+bot.on('guildMemberAdd', async ({ID, guild}) => {
     let channelID = '734788902480510997';
     let rules = '724391349192884224';
     let verify = '806269409702182953';
     let roles = '724391331132342353';
-    const result = guild.members.cache
-          .sorted((a, b) => a.joinedAt - b.joinedAt)
-          .array()
-          .findIndex(member => member.id === member.id) + 1
-        const lastDigit = result % 10
-        const last2Digits = result % 100
+    let arr = guild.members.array();
+    arr.sort((a, b) => a.joinedAt - b.joinedAt);
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].id == ID) return i;
     let embed = new Discord.MessageEmbed()
     .setTitle(`Welcome to Silver-Studios! :wave:`)
     .setDescription(`We are glad to have you here! Please head to <#${rules}> first and catch yourself up on how we do things around here. Never takes long and it makes sure you don't get in trouble in the future. Then, visit <#${verify}> and follow the instructions there so you can talk in our server. Finally, just head to <#${roles}> and assign yourself whatever you want.`)
     .setColor("GREEN")
     .setTimestamp()
-    .setFooter(`Thats it! Have fun! | User ${result}`)
+    .setFooter(`Thats it! Have fun! | User #${i}`)
     .setThumbnail(`https://i.postimg.cc/66GfDvFQ/Png.png`)
-    //bot.channels.cache.get(channelID).send(`<@${user}>`)
+    bot.channels.cache.get(channelID).send(`<@${ID}>`)
     bot.channels.cache.get(channelID).send(embed)
 })
-
 
 //Reaction Roles
 
