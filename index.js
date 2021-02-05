@@ -99,7 +99,7 @@ bot.on("message", async message => {
     if(cmd == 'reactionsetup3') {
         let embed = new Discord.MessageEmbed()
         .setTitle('Region Roles')
-        .setDescription('React with  to gain the respective region roles to show where you are based in.\n')
+        .setDescription('React with  to gain the respective region roles to show where you are based in.\n\n1️⃣ - Canada\n2️⃣ - US\n3️⃣ - Mexico\n4️⃣ - South America\n5️⃣ - Europe\n6️⃣ - Asia\n7️⃣ - Africa\n8️⃣ - Oceania')
         .setColor("YELLOW")
         bot.channels.cache.get(channelID).send(embed).then(sentEmbed => {
             sentEmbed.react('1️⃣')
