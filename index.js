@@ -144,7 +144,22 @@ bot.on('messageReactionRemove', async (reaction, user) => {
     }
 })
 
-bot.login(process.env.token)
+
+//Custom Status
+
+client.on("ready", () =>{
+    console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setPresence({
+        status: "do not disturb",  //You can show online, idle....
+        game: {
+            name: "Watching over Silver-Studios | Bot under Construction",  //The message shown
+            type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
+ });
+
+
+ bot.login(process.env.token)
 
 
 
