@@ -89,6 +89,7 @@ bot.on('guildMemberAdd', async (ID, guild) => {
     arr.sort((a, b) => a.joinedAt - b.joinedAt);
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].id == ID) return i;
+        console.log(`${i}`)
     }
     let embed = new Discord.MessageEmbed()
     .setTitle(`Welcome to Silver-Studios! :wave:`)
