@@ -87,8 +87,9 @@ bot.on('guildMemberAdd', async (ID, guild) => {
     let roles = '724391331132342353';
     let arr = guild.members.array();
     arr.sort((a, b) => a.joinedAt - b.joinedAt);
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i].id == ID) return i;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].id == ID) return i;
+    }
     let embed = new Discord.MessageEmbed()
     .setTitle(`Welcome to Silver-Studios! :wave:`)
     .setDescription(`We are glad to have you here! Please head to <#${rules}> first and catch yourself up on how we do things around here. Never takes long and it makes sure you don't get in trouble in the future. Then, visit <#${verify}> and follow the instructions there so you can talk in our server. Finally, just head to <#${roles}> and assign yourself whatever you want.`)
@@ -148,11 +149,6 @@ bot.on('messageReactionRemove', async (reaction, user) => {
 })
 
 bot.login(process.env.token)
-
-
-
-
-
 
 
 
