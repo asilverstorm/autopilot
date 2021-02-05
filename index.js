@@ -80,17 +80,11 @@ bot.on('message', (message) => {
 
 //Welcome Messaging
 
-bot.on('guildMemberAdd', async (ID, guild) => {
+bot.on('guildMemberAdd', async (member, guild) => {
     let channelID = '734788902480510997';
     let rules = '724391349192884224';
     let verify = '806269409702182953';
     let roles = '724391331132342353';
-    let arr = guild.members.array();
-    arr.sort((a, b) => a.joinedAt - b.joinedAt);
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].id == ID) return i;
-        console.log(`${i}`)
-    }
     let embed = new Discord.MessageEmbed()
     .setTitle(`Welcome to Silver-Studios! :wave:`)
     .setDescription(`We are glad to have you here! Please head to <#${rules}> first and catch yourself up on how we do things around here. Never takes long and it makes sure you don't get in trouble in the future. Then, visit <#${verify}> and follow the instructions there so you can talk in our server. Finally, just head to <#${roles}> and assign yourself whatever you want.`)
@@ -98,7 +92,7 @@ bot.on('guildMemberAdd', async (ID, guild) => {
     .setTimestamp()
     .setFooter(`Thats it! Have fun! | User #${i}`)
     .setThumbnail(`https://i.postimg.cc/66GfDvFQ/Png.png`)
-    bot.channels.cache.get(channelID).send(`<@${ID}>`)
+    bot.channels.cache.get(channelID).send(`<@${member.id}>`)
     bot.channels.cache.get(channelID).send(embed)
 })
 
