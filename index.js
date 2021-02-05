@@ -124,6 +124,15 @@ bot.on('messageReactionAdd', async (reaction, user) => {
         if (reaction.emoji.name === '🔔') {
             await reaction.message.guild.members.cache.get(user.id).roles.add('727590400046661694')
         }
+        if (reaction.emoji.name === '🖥️') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('631543445650931742')
+        }
+        if (reaction.emoji.name === '📱') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('631543559555645452')
+        }
+        if (reaction.emoji.name === '🎮') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('631543640686067732')
+        }
     }
 })
 
@@ -135,6 +144,15 @@ bot.on('messageReactionRemove', async (reaction, user) => {
     if (reaction.message.channel.id === '724391331132342353') {
         if (reaction.emoji.name === '🔔') {
             await reaction.message.guild.members.cache.get(user.id).roles.remove('727590400046661694')
+        }
+        if (reaction.emoji.name === '🖥️') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('631543445650931742')
+        }
+        if (reaction.emoji.name === '📱') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('631543559555645452')
+        }
+        if (reaction.emoji.name === '🎮') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('631543640686067732')
         }
     }
 })
