@@ -88,7 +88,7 @@ bot.on('guildMemberAdd', async ({member, guild}) => {
     const result = guild.members.cache
           .sorted((a, b) => a.joinedAt - b.joinedAt)
           .array()
-          .findIndex(member => member.id) + 1
+          .findIndex(member => member.id === member.id) + 1
         const lastDigit = result % 10
         const last2Digits = result % 100
     let embed = new Discord.MessageEmbed()
