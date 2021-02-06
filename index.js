@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 
 //Connections
 
-mongoose.connect('mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data')
+mongoose.connect('mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
 
 
 //Getting Bot Ready
