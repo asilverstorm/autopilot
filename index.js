@@ -236,7 +236,7 @@ bot.on("message", async message => {
         //Edit below everytime a new giveaway is created/repeat command
         await bot.giveaways.startGiveaway({
             prize: 'Nothing!',
-            channelId: 724410874307149846,
+            channelId: 724410874307149846, //giveaway channel
             guildId: message.guild.id,
             duration: 30000, // 30 Seconds
             winners: 1, // 1 winner
