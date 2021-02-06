@@ -5,8 +5,6 @@
 
 const Discord = require('discord.js');
 const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
-const distube = require('distube')
-bot.distube = new DisTube(bot, { searchSongs: false, emitNewSongOnly: true });
 const mongoose = require('mongoose');
 const { GiveawaysManager } = require('discord-giveaways');
 const manager = new GiveawaysManager(bot, {
