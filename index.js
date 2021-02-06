@@ -6,8 +6,8 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 const mongoose = require('mongoose');
-const { GiveawayCreator } = require('discord-giveaway');
-const Creator = new GiveawayCreator(bot, 'mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data');
+const manager = new GiveawaysManager(bot, { storage: 'mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data', updateCountdownEvery: 10000, hasGuildMembersIntent: false, default: { botsCanWin: false, exemptPermissions: ['MANAGE_MESSAGES', 'ADMINISTRATOR'], embedColor: '#6a0dad', reaction: '🎉' } });
+const { GiveawaysManager } = require('discord-giveaways');
 
 
 // Connections
@@ -222,26 +222,26 @@ bot.on("ready", () => {
 
 // Giveaway Feature
 
-bot.on("message", async (bot, message) => {
+bot.on('message', (message) => {
+    const ms = require('ms'); // npm install ms
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    let prefix = '>';
     if (message.author.id !== '594371388228239370') return;
     if(message.channel.type !== 'text') return;
-    let prefix = '>';
-    let MessageArray = message.content.split(' ');
-    let cmd = MessageArray[0].slice(prefix.length);
-    if(!message.content.startsWith(prefix)) return;
-    if(cmd == 'gcreate') {
-        // Edit below everytime a new giveaway is created/repeat command
-        await bot.giveaways.startGiveaway({
-            prize: 'Nothing!',
-            channelId: 724410874307149846, // Giveaway channel
-            guildId: message.guild.id,
-            duration: 30000, // 30 Seconds
-            winners: 1, // Amount of winners
-            hostedBy: 594371388228239370 // Host
+
+    if (command === 'gcreate') {
+        // >gcreate 2d 1 Awesome prize!
+        // will create a giveaway with a duration of two days, with one winner and the prize will be "Awesome prize!"
+        client.giveawaysManager.start(message.channel, {
+            time: ms(args[0]),
+            prize: args.slice(2).join(' '),
+            winnerCount: parseInt(args[1])
+        }).then((gData) => {
+            console.log(gData); 
         });
     }
-})
-
+});
 
 //DO NOT TOUCH
 bot.login(process.env.token);
