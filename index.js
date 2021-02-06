@@ -223,7 +223,7 @@ bot.on("ready", () => {
 
 //Giveaway Feature
 
-bot.on("message", async (message, member) => {
+bot.on("message", async message => {
     const channel = message.mentions.channels.first();
     if (message.author.id !== '594371388228239370') return;
     if(message.channel.type !== 'text') return;
@@ -236,7 +236,7 @@ bot.on("message", async (message, member) => {
         //Edit below everytime a new giveaway is created/repeat command
         await bot.giveaways.startGiveaway({
             prize: 'Nothing!',
-            channelId: channel.id,
+            channelId: 724410874307149846,
             guildId: message.guild.id,
             duration: 30000, // 30 Seconds
             winners: 1, // 1 winner
