@@ -8,6 +8,11 @@ const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 const mongoose = require('mongoose');
 
 
+//Connections
+
+mongoose.connect('mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data')
+
+
 //Getting Bot Ready
 
 bot.on('ready', () => {
