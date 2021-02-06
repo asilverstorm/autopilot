@@ -232,7 +232,7 @@ bot.on('messageReactionRemove', async (reaction, user) => {
 // Custom Status
 
 bot.on("ready", () => {
-    bot.user.setActivity('Under Construction', {type: 'STREAMING', url: 'https://www.twitch.tv/asilverstorm880'})
+    bot.user.setActivity('Piloting Silver-Studios', {type: 'STREAMING', url: 'https://www.twitch.tv/asilverstorm880'})
 })
 
 
