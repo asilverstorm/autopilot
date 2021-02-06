@@ -7,13 +7,13 @@ const Discord = require('discord.js');
 const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 const mongoose = require('mongoose');
 const { GiveawayCreator } = require('discord-giveaway');
-const Creator = new GiveawayCreator(bot, 'mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data')
+const Creator = new GiveawayCreator(bot, 'mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data');
 
 
 //Connections
 
-mongoose.connect('mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true})
-
+mongoose.connect('mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true});
+bot.giveaways = Creator;
 
 //Getting Bot Ready
 
@@ -247,4 +247,4 @@ bot.on("message", async message => {
 
 
 //DO NOT TOUCH
-bot.login(process.env.token)
+bot.login(process.env.token);
