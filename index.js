@@ -60,7 +60,7 @@ bot.on('message', (message) => {
 })
 
 
-// Welcome Messaging
+// Welcome and Leave Messaging
 
 bot.on('guildMemberAdd', async member => {
     let channelID = '734788902480510997';
@@ -75,6 +75,17 @@ bot.on('guildMemberAdd', async member => {
     .setFooter(`Thats it! Have fun! | User #${member.guild.memberCount}`)
     .setThumbnail(`https://i.postimg.cc/66GfDvFQ/Png.png`)
     bot.channels.cache.get(channelID).send(`<@${member.id}>`)
+    bot.channels.cache.get(channelID).send(embed)
+})
+
+bot.on('guildMemberRemove', async member => {
+    let channelID = '806731791062925373';
+    let embed = new Discord.MessageEmbed()
+    .setTitle(`Member Left`)
+    .setDescription(`User <@${member.id}>`)
+    .setColor("BLACK")
+    .setTimestamp()
+    .setFooter(`${member.guild.memberCount} Members Left`)
     bot.channels.cache.get(channelID).send(embed)
 })
 
