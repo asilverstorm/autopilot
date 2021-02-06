@@ -56,7 +56,7 @@ bot.on('message', (message) => {
 
 //Welcome Messaging
 
-bot.on('guildMemberAdd', async (member, guild) => {
+bot.on('guildMemberAdd', async member => {
     let channelID = '734788902480510997';
     let rules = '724391349192884224';
     let verify = '806269409702182953';
@@ -223,7 +223,7 @@ bot.on("ready", () => {
 
 //Giveaway Feature
 
-bot.on("message", async message => {
+bot.on("message", async (message, member) => {
     const channel = message.mentions.channels.first();
     if (message.author.id !== '594371388228239370') return;
     if(message.channel.type !== 'text') return;
@@ -240,7 +240,7 @@ bot.on("message", async message => {
             guildId: message.guild.id,
             duration: 30000, // 30 Seconds
             winners: 1, // 1 winner
-            hostedBy: message.author.id
+            hostedBy: 594371388228239370 //Host
         });
     }
 })
