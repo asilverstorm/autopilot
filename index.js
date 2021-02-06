@@ -223,7 +223,7 @@ bot.on("ready", () => {
 
 //Giveaway Feature
 
-bot.on("message", async (bot, message, args) => {
+bot.on("message", async message => {
     const channel = message.mentions.channels.first();
     if (message.author.id !== '594371388228239370') return;
     if(message.channel.type !== 'text') return;
