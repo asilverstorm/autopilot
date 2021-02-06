@@ -81,8 +81,8 @@ bot.on('guildMemberAdd', async member => {
 bot.on('guildMemberRemove', async member => {
     let channelID = '806731791062925373';
     let embed = new Discord.MessageEmbed()
-    .setTitle(`Member Left`)
-    .setDescription(`User <@${member.id}>`)
+    .setTitle(`Mod Logs | Member Left`)
+    .setDescription(`User <@${member.id}> has left the server`)
     .setColor("BLACK")
     .setTimestamp()
     .setFooter(`${member.guild.memberCount} Members Left`)
