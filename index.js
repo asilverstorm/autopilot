@@ -85,7 +85,7 @@ bot.on('guildMemberRemove', async member => {
     .setDescription(`User <@${member.id}> has left the server`)
     .setColor("BLACK")
     .setTimestamp()
-    .setFooter(`${member.guild.memberCount} Members Left`)
+    .setFooter(`${member.guild.memberCount} Members Remain`)
     bot.channels.cache.get(channelID).send(embed)
 })
 
