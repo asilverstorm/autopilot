@@ -234,7 +234,7 @@ bot.on("message", async message => {
     if(!message.content.startsWith(prefix)) return;
     if(cmd == 'gcreate') {
         //Edit below everytime a new giveaway is created/repeat command
-        await client.giveaways.startGiveaway({
+        await bot.giveaways.startGiveaway({
             prize: 'Nothing!',
             channelId: channel.id,
             guildId: message.guild.id,
