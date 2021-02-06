@@ -8,7 +8,7 @@ const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 const mongoose = require('mongoose');
 const { GiveawaysManager } = require('discord-giveaways');
 const manager = new GiveawaysManager(bot, {
-    storage: 'mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data',
+    storage: './giveaways.json',
     updateCountdownEvery: 10000,
     hasGuildMembersIntent: false,
     default: {
