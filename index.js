@@ -5,6 +5,8 @@
 
 const Discord = require('discord.js');
 const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
+const distube = require('distube')
+bot.distube = new DisTube(bot, { searchSongs: false, emitNewSongOnly: true });
 const mongoose = require('mongoose');
 const { GiveawaysManager } = require('discord-giveaways');
 const manager = new GiveawaysManager(bot, {
@@ -248,5 +250,44 @@ bot.on('message', (message) => {
     }
 });
 
-//DO NOT TOUCH
+
+// Music Stuff
+
+bot.on(async (bot, message, args) => {
+    let MessageArray = message.content.split(' ');
+    let cmd = MessageArray[0].slice(settings.prefix.length);
+    let args = messageArray.slice(1);
+    const music = args.join(" ");
+    if (!message.member.voice.channel) return message.channel.send('You must be in a voice channel to use this command.');
+    bot.distube.play(message, music)
+    let queue = await bot.distube.getQueue(message);
+
+    if(queue) {
+        bot.distube.stop(message)
+
+        message.channel.send('DONE!')
+    } else if (!queue) {
+        return
+    };
+
+    if(queue) {
+        bot.distube.skip(message)
+
+        message.channel.send('DONE!')
+    } else if (!queue) {
+        return
+    };
+
+    bot.distube
+    .on("playSong", (message, queue, song) => message.channel.send(
+        `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}`
+	))
+	.on("addSong", (message, queue, song) => message.channel.send(
+        `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
+    ))
+
+})
+
+
+// DO NOT TOUCH
 bot.login(process.env.token);
