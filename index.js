@@ -23,11 +23,9 @@ settings = {
     prefix: '>',
 };
 
-
-// Connections
+bot.giveawaysManager = manager;
 
 mongoose.connect('mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true});
-bot.giveawaysManager = manager;
 
 // Getting Bot Ready
 
@@ -234,7 +232,7 @@ bot.on('message', (message) => {
     const ms = require('ms');
     const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-    if (message.author.id !== '594371388228239370') return;
+    if(message.author.id !== '594371388228239370') return;
     if(message.channel.type !== 'text') return;
 
     if (command === 'gcreate') {
