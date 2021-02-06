@@ -6,7 +6,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 const mongoose = require('mongoose');
-const manager = new GiveawaysManager(bot, { storage: '', updateCountdownEvery: 10000, hasGuildMembersIntent: false, default: { botsCanWin: false, exemptPermissions: ['MANAGE_MESSAGES', 'ADMINISTRATOR'], embedColor: '#6a0dad', reaction: '🎉' } });
 const { GiveawaysManager } = require('discord-giveaways');
 const manager = new GiveawaysManager(bot, {
     storage: 'mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data',
@@ -24,6 +23,7 @@ const manager = new GiveawaysManager(bot, {
 // Connections
 
 mongoose.connect('mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true});
+bot.giveawaysManager = manager;
 
 // Getting Bot Ready
 
