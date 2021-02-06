@@ -133,6 +133,30 @@ bot.on('messageReactionAdd', async (reaction, user) => {
         if (reaction.emoji.name === '🎮') {
             await reaction.message.guild.members.cache.get(user.id).roles.add('631543640686067732')
         }
+        if (reaction.emoji.name === '1️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('707955059551371324')
+        }
+        if (reaction.emoji.name === '2️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('707954981348573259')
+        }
+        if (reaction.emoji.name === '3️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('707955123174899806')
+        }
+        if (reaction.emoji.name === '4️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('707955552323633162')
+        }
+        if (reaction.emoji.name === '5️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('707955171640082432')
+        }
+        if (reaction.emoji.name === '6️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('707955305908142116')
+        }
+        if (reaction.emoji.name === '7️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('707955454914986054')
+        }
+        if (reaction.emoji.name === '8️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.add('707955415006183525')
+        }
     }
 })
 
@@ -153,6 +177,30 @@ bot.on('messageReactionRemove', async (reaction, user) => {
         }
         if (reaction.emoji.name === '🎮') {
             await reaction.message.guild.members.cache.get(user.id).roles.remove('631543640686067732')
+        }
+        if (reaction.emoji.name === '1️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('707955059551371324')
+        }
+        if (reaction.emoji.name === '2️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('707954981348573259')
+        }
+        if (reaction.emoji.name === '3️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('707955123174899806')
+        }
+        if (reaction.emoji.name === '4️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('707955552323633162')
+        }
+        if (reaction.emoji.name === '5️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('707955171640082432')
+        }
+        if (reaction.emoji.name === '6️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('707955305908142116')
+        }
+        if (reaction.emoji.name === '7️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('707955454914986054')
+        }
+        if (reaction.emoji.name === '8️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove('707955415006183525')
         }
     }
 })
