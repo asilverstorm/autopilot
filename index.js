@@ -19,6 +19,10 @@ const manager = new GiveawaysManager(bot, {
     }
 });
 
+settings = {
+    prefix: '>',
+};
+
 
 // Connections
 
@@ -233,9 +237,8 @@ bot.on("ready", () => {
 // Giveaway Feature
 
 bot.on('message', (message) => {
-    let prefix = '>';
-    const ms = require('ms'); // npm install ms
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const ms = require('ms');
+    const args = message.content.slice(settings.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     if (message.author.id !== '594371388228239370') return;
     if(message.channel.type !== 'text') return;
