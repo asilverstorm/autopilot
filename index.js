@@ -243,7 +243,7 @@ bot.on('message', (message) => {
     if (command === 'gcreate') {
         // >gcreate 2d 1 Awesome prize!
         // will create a giveaway with a duration of two days, with one winner and the prize will be "Awesome prize!"
-        client.giveawaysManager.start(message.channel, {
+        bot.giveawaysManager.start(message.channel, {
             time: ms(args[0]),
             prize: args.slice(2).join(' '),
             winnerCount: parseInt(args[1])
