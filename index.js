@@ -6,6 +6,8 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 const mongoose = require('mongoose');
+const { GiveawayCreator } = require('discord-giveaway');
+const Creator = new GiveawayCreator(bot, 'mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data')
 
 
 //Connections
@@ -27,8 +29,8 @@ bot.on('message', (message) => {
     if(message.channel.type !== 'text') return;
     let prefix = '>';
     let MessageArray = message.content.split(' ');
-    let cmd = MessageArray[0].slice(prefix.length)
-    let args = MessageArray.slice(1)
+    let cmd = MessageArray[0].slice(prefix.length);
+    let args = MessageArray.slice(1);
     if(!message.content.startsWith(prefix)) return;
     if(cmd == 'links') {
         message.channel.send(`***Hey, there, <@${message.author.id}>! We have numerous connections for Silver-Studios! Consider giving us a follow on our social media, or donate to us.*** :grin:\n\n:video_game: __Roblox:__ <https://web.roblox.com/groups/5068592/Silver-Studios>\n:bird: __Twitter:__ <https://twitter.com/silverstudios9>\n:red_circle: __YouTube:__ <https://www.youtube.com/channel/UC9jauBokYcaxt5EjTUXPJOA>\n:desktop: __Website:__ <https://silver-studios.xyz>\n:moneybag: __Patreon:__ <https://patreon.com/SilverStudios>\n:e_mail: __Discord Invite:__ <https://dsc.gg/Silver-Studios>\n\n*Feel free to go to our website if you want to buy our merch or any benefits for Discord or our games. People who wish to formally contact us or submit an application are also urged to visit our website.*\n------------------------------------------`);
@@ -40,9 +42,9 @@ bot.on('message', (message) => {
     if(message.channel.type !== 'text') return;
     let prefix = '>';
     let MessageArray = message.content.split(' ');
-    let cmd = MessageArray[0].slice(prefix.length)
-    let args = MessageArray.slice(1)
-    let roles = '724391331132342353'
+    let cmd = MessageArray[0].slice(prefix.length);
+    let args = MessageArray.slice(1);
+    let roles = '724391331132342353';
     if(!message.content.startsWith(prefix)) return;
     if(cmd == 'rolesinfo') {
         message.channel.send(`***We have many roles for you to apply for, earn, and even give yourself! See a list of each role and what they do below :point_down:***\n\n*Staff Roles*\n-\n<@&727595225123651625>: __You are a friend of the Owner__\n<@&806731297640808448>: __Role given to all staff, including developers__\n<@&805675536130113547>: __You moderate the discord and other group chats we have__\n<@&631316263066664961>: __You moderate the games and are supervisors in the Discord__\n<@&631323272927248384>: __You help program our games, website, or Discord bot__\n\n*Special Roles*\n-\n<@&723353782502817892>: __You have donated once or more in the past__\n<@&631323854593196058>: __You have bought this role from our website__\n<@&723353663770329233>: __You have the standard plan in our Patreon__\n<@&723356769878802494>: __You have the premium plan in our Patreon__\n\n*Main Roles*\n-\n<@&631317435651325962>: __You help test our game, website, or Discord bot.__\n<@&631323469937770506>: __You have partnered with us as a Content Creator__\n<@&650854575364112405>: __You have partnered your own group with us__\n<@&707647379335020554>: __You are a verified member of Silver-Studios__\n<@&646420979370688512>: __You have won a giveaway before__\n<@&727590400046661694>: __You have signed up to get pinged for announcements__\n<@&733815838859329567>: __You are not verified__`);
@@ -78,15 +80,15 @@ bot.on("message", async message => {
     let channelID = '724391331132342353';
     let prefix = '>';
     let MessageArray = message.content.split(' ');
-    let cmd = MessageArray[0].slice(prefix.length)
-    let args = MessageArray.slice(1)
+    let cmd = MessageArray[0].slice(prefix.length);
+    let args = MessageArray.slice(1);
     if(cmd == 'reactionsetup1') {
         let embed = new Discord.MessageEmbed()
         .setTitle('Notifications Role')
         .setDescription('React with 🔔 to gain the Notifications role if you would like to get pinged for announcements and updates.')
         .setColor("RED")
         bot.channels.cache.get(channelID).send(embed).then(sentEmbed => {
-            sentEmbed.react('🔔')
+            sentEmbed.react('🔔');
         })
         
     }
@@ -96,9 +98,9 @@ bot.on("message", async message => {
         .setDescription('React below to gain the respective device role to show what you are mainly on.\n\n🖥️ - Desktop/Laptop\n📱 - Mobile\n🎮 - Console')
         .setColor("BLUE")
         bot.channels.cache.get(channelID).send(embed).then(sentEmbed => {
-            sentEmbed.react('🖥️')
-            sentEmbed.react('📱')
-            sentEmbed.react('🎮')
+            sentEmbed.react('🖥️');
+            sentEmbed.react('📱');
+            sentEmbed.react('🎮');
         })
         
     }
@@ -108,14 +110,14 @@ bot.on("message", async message => {
         .setDescription('React below to gain the respective region role to show where you are based in.\n\n1️⃣ - Canada\n2️⃣ - US\n3️⃣ - Mexico\n4️⃣ - South America\n5️⃣ - Europe\n6️⃣ - Asia\n7️⃣ - Africa\n8️⃣ - Oceania')
         .setColor("YELLOW")
         bot.channels.cache.get(channelID).send(embed).then(sentEmbed => {
-            sentEmbed.react('1️⃣')
-            sentEmbed.react('2️⃣')
-            sentEmbed.react('3️⃣')
-            sentEmbed.react('4️⃣')
-            sentEmbed.react('5️⃣')
-            sentEmbed.react('6️⃣')
-            sentEmbed.react('7️⃣')
-            sentEmbed.react('8️⃣')
+            sentEmbed.react('1️⃣');
+            sentEmbed.react('2️⃣');
+            sentEmbed.react('3️⃣');
+            sentEmbed.react('4️⃣');
+            sentEmbed.react('5️⃣');
+            sentEmbed.react('6️⃣');
+            sentEmbed.react('7️⃣');
+            sentEmbed.react('8️⃣');
         })
         
     }
@@ -219,7 +221,29 @@ bot.on("ready", () => {
 })
 
 
+//Giveaway Feature
 
+bot.on("message", async (bot, message, args) => {
+    const channel = message.mentions.channels.first();
+    if (message.author.id !== '594371388228239370') return;
+    if(message.channel.type !== 'text') return;
+    let prefix = '>';
+    let MessageArray = message.content.split(' ');
+    let cmd = MessageArray[0].slice(prefix.length);
+    let args = MessageArray.slice(1);
+    if(!message.content.startsWith(prefix)) return;
+    if(cmd == 'gcreate') {
+        //Edit below everytime a new giveaway is created/repeat command
+        await client.giveaways.startGiveaway({
+            prize: 'Nothing!',
+            channelId: channel.id,
+            guildId: message.guild.id,
+            duration: 30000, // 30 Seconds
+            winners: 1, // 1 winner
+            hostedBy: message.author.id
+        });
+    }
+})
 
 
 //DO NOT TOUCH
