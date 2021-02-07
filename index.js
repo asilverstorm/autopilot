@@ -59,6 +59,23 @@ bot.on('message', (message) => {
     }
 })
 
+bot.on('message', (message) => {
+    if(message.channel.type !== 'text') return;
+    let MessageArray = message.content.split(' ');
+    let cmd = MessageArray[0].slice(settings.prefix.length);
+    let args = MessageArray.slice(1);
+    let channelID = '724408779097112586';
+    if(cmd == 'pollcreate') {
+        let pollDescription = args.slice(0).join(' ');
+        let embedPoll = new Discord.MessageEmbed()
+        .setTitle('New Poll')
+        .SetTimestamp()
+        .setDescription(pollDescription)
+        .setColor('YELLOW')
+        channelID.send(embedPoll);
+    }
+})
+
 
 // Welcome and Leave Messaging
 
