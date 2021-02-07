@@ -262,26 +262,29 @@ bot.on('message', (message) => {
 // Audit Logging
 
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
-    
+    if(message.channel.type !== 'text') return;
+    const channelID = '806731791062925373';
+    let embed = new Discord.MessageEmbed()
+        .setTitle('Message Edited')
+        .setDescription(`Old Message: ${oldMessage}\n\nNew Message: ${newMessage}`)
+        .setColor("AQUA")
+        .setAuthor(`<@${newMessage.author.id}>`, newMessage.author.avatarURL)
+        .setTimestamp()
+        bot.channels.cache.get(channelID).send(embed)
 })
 
-bot.on('messageDelete', async (message) => {
-
+bot.on('messageDelete', async (message, members) => {
+    if(message.channel.type !== 'text') return;
+    const channelID = '806731791062925373';
+    let embed = new Discord.MessageEmbed()
+        .setTitle('Message Deleted')
+        .setDescription('')
+        .setColor("ORANGE")
+        .setAuthor(``)
+        .setTimestamp()
+        bot.channels.cache.get(channelID).send(embed)
 })
 
-bot.on('voiceStateUpdate', (oldMember, newMember) => {
-    let newUserChannel = newMember.voiceChannelID
-    let oldUserChannel = oldMember.voiceChannelID
-
-    if(newUserChannel === 712677767333937284) {
-        // User Joins a voice channel
-        console.log("Joined VC1") //change to send an embed
-
-    } else if(newUserChannel !== 712677767333937284){
-        // User leaves a voice channel
-        console.log("Left VC1") //change to send an embed
-
-    }
 
 // DO NOT TOUCH
 bot.login(process.env.token);
