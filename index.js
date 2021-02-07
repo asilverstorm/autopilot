@@ -274,7 +274,7 @@ bot.on('messageUpdate', async (oldMessage, newMessage) => {
         bot.channels.cache.get(channelID).send(embed)
 })
 
-bot.on('messageDelete', async (message, members) => {
+bot.on('messageDelete', async message => {
     if(!message.guild) return;
     if(message.author.bot) return;
     const channelID = '807830104880316456';
