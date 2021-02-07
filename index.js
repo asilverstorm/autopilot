@@ -262,7 +262,7 @@ bot.on('message', (message) => {
 // Audit Logging
 
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
-    if(message.channel.type !== 'text') return;
+    if(oldmessage.channel.type !== 'text') return;
     const channelID = '806731791062925373';
     let embed = new Discord.MessageEmbed()
         .setTitle('Message Edited')
