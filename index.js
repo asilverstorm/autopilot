@@ -262,7 +262,7 @@ bot.on('message', (message) => {
 // Audit Logging
 
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
-    if(newMessage.channel.type !== 'text') return;
+    if(!newMessage.guild) return;
     if(newMessage.author == bot) return;
     const channelID = '806731791062925373';
     let embed = new Discord.MessageEmbed()
