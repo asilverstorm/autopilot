@@ -59,7 +59,7 @@ bot.on('message', (message) => {
     }
 })
 
-bot.on('message', (message) => {
+bot.on('message', async message => {
     if(message.channel.type !== 'text') return;
     const MessageArray = message.content.split(' ');
     const cmd = MessageArray[0].slice(settings.prefix.length);
