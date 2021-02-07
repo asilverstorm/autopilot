@@ -274,17 +274,18 @@ bot.on('messageUpdate', async (oldMessage, newMessage) => {
         bot.channels.cache.get(channelID).send(embed)
 })
 
-//bot.on('messageDelete', async (message, members) => {
-  //  if(message.channel.type !== 'text') return;
- //   const channelID = '806731791062925373';
- //   let embed = new Discord.MessageEmbed()
- //       .setTitle('Message Deleted')
- //       .setDescription('')
- //       .setColor("ORANGE")
- //       .setAuthor(``)
-  //      .setTimestamp()
-   //     bot.channels.cache.get(channelID).send(embed)
-//})
+bot.on('messageDelete', async (message, members) => {
+    if(!message.guild) return;
+    if(message.author.bot) return;
+    const channelID = '807830104880316456';
+    let embed = new Discord.MessageEmbed()
+        .setTitle('Message Edited')
+        .setDescription(`Deleted Message: ${message}\n\nIn Channel: ${message.channel.name}`)
+        .setColor("ORANGE")
+        .setAuthor(message.author.tag, message.author.displayAvatarURL)
+        .setTimestamp()
+        bot.channels.cache.get(channelID).send(embed)
+})
 
 
 // DO NOT TOUCH
