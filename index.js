@@ -267,7 +267,7 @@ bot.on('messageUpdate', async (oldMessage, newMessage) => {
     const channelID = '806731791062925373';
     let embed = new Discord.MessageEmbed()
         .setTitle('Message Edited')
-        .setDescription(`Old Message: ${oldMessage}\n\nNew Message: ${newMessage}`)
+        .setDescription(`Old Message: ${oldMessage}\n\nNew Message: ${newMessage}\n\nIn Channel: ${newMessage.channel.name}`)
         .setColor("AQUA")
         .setAuthor(newMessage.author.tag, newMessage.author.displayAvatarURL)
         .setTimestamp()
