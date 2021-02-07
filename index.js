@@ -261,15 +261,15 @@ bot.on('message', (message) => {
 
 // Audit Logging
 
-bot.on('messageUpdate', async (oldMessage, newMessage, message) => {
-    if(message.channel.type !== 'text') return;
-    if(message.author == bot) return;
+bot.on('messageUpdate', async (oldMessage, newMessage) => {
+    if(newMessage.channel.type !== 'text') return;
+    if(newMessage.author == bot) return;
     const channelID = '806731791062925373';
     let embed = new Discord.MessageEmbed()
         .setTitle('Message Edited')
         .setDescription(`Old Message: ${oldMessage}\n\nNew Message: ${newMessage}`)
         .setColor("AQUA")
-        .setAuthor(`<@${message.author.id}>`, message.author.avatarURL)
+        .setAuthor(`<@${newMessage.author.id}>`, newMessage.author.avatarURL)
         .setTimestamp()
         bot.channels.cache.get(channelID).send(embed)
 })
