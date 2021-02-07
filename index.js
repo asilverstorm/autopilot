@@ -69,7 +69,7 @@ bot.on('message', (message) => {
         let pollDescription = args.slice(0).join(' ');
         let embedPoll = new Discord.MessageEmbed()
         .setTitle('New Poll')
-        .SetTimestamp()
+        .setTimestamp()
         .setDescription(pollDescription)
         .setColor('YELLOW')
         channelID.send(embedPoll);
