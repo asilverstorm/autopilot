@@ -279,7 +279,7 @@ bot.on('messageDelete', async message => {
     if(message.author.bot) return;
     const channelID = '807830104880316456';
     let embed = new Discord.MessageEmbed()
-        .setTitle('Message Edited')
+        .setTitle('Message Deleted')
         .setDescription(`Deleted Message: ${message}\n\nIn Channel: ${message.channel.name}`)
         .setColor("ORANGE")
         .setAuthor(message.author.tag, message.author.displayAvatarURL)
