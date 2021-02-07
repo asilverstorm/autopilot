@@ -264,7 +264,7 @@ bot.on('message', (message) => {
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
     if(!newMessage.guild) return;
     if(newMessage.author.bot) return;
-    const channelID = '806731791062925373';
+    const channelID = '807830104880316456';
     let embed = new Discord.MessageEmbed()
         .setTitle('Message Edited')
         .setDescription(`Old Message: ${oldMessage}\n\nNew Message: ${newMessage}\n\nIn Channel: ${newMessage.channel.name}`)
