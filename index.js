@@ -263,7 +263,7 @@ bot.on('message', (message) => {
 
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
     if(!newMessage.guild) return;
-    if(oldMessage.author == bot) return;
+    if(newMessage.author.bot) return;
     const channelID = '806731791062925373';
     let embed = new Discord.MessageEmbed()
         .setTitle('Message Edited')
