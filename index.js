@@ -66,13 +66,13 @@ bot.on('message', (message) => {
     const args = MessageArray.slice(1);
     if(cmd == 'pollcreate') {
         let pollDescription = args.slice(0).join(' ');
-        let channelID = '724408779097112586';
+        let pollChannel = '724408779097112586';
         let embedPoll = new Discord.MessageEmbed()
         .setTitle('New Poll')
         .setTimestamp()
         .setDescription(pollDescription)
         .setColor('YELLOW')
-        channelID.send(embedPoll);
+        pollChannel.send(embedPoll);
     }
 })
 
