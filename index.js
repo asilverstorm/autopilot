@@ -259,7 +259,7 @@ bot.on('message', (message) => {
 });
 
 
-// Next thing
+// Message Logging
 
 
 
