@@ -61,12 +61,12 @@ bot.on('message', (message) => {
 
 bot.on('message', (message) => {
     if(message.channel.type !== 'text') return;
-    let MessageArray = message.content.split(' ');
-    let cmd = MessageArray[0].slice(settings.prefix.length);
-    let args = MessageArray.slice(1);
-    let channelID = '724408779097112586';
+    const MessageArray = message.content.split(' ');
+    const cmd = MessageArray[0].slice(settings.prefix.length);
+    const args = MessageArray.slice(1);
     if(cmd == 'pollcreate') {
         let pollDescription = args.slice(0).join(' ');
+        let channelID = '724408779097112586';
         let embedPoll = new Discord.MessageEmbed()
         .setTitle('New Poll')
         .setTimestamp()
