@@ -259,10 +259,29 @@ bot.on('message', (message) => {
 });
 
 
-// Message Logging
+// Audit Logging
 
+bot.on('messageUpdate', async (oldMessage, newMessage) => {
+    
+})
 
+bot.on('messageDelete', async (message) => {
 
+})
+
+bot.on('voiceStateUpdate', (oldMember, newMember) => {
+    let newUserChannel = newMember.voiceChannelID
+    let oldUserChannel = oldMember.voiceChannelID
+
+    if(newUserChannel === 712677767333937284) {
+        // User Joins a voice channel
+        console.log("Joined VC1") //change to send an embed
+
+    } else if(newUserChannel !== 712677767333937284){
+        // User leaves a voice channel
+        console.log("Left VC1") //change to send an embed
+
+    }
 
 // DO NOT TOUCH
 bot.login(process.env.token);
