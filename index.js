@@ -27,7 +27,7 @@ require("./util/eventHandler")(bot)
 
 bot.giveawaysManager = manager;
 
-mongoose.connect('mongodb+srv://SilverStorm:SilverIsSlick1@cluster0.hu9gx.mongodb.net/Data', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.mongodbconnect, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Getting Bot Ready
 
