@@ -1,0 +1,71 @@
+Feature List
+---------------------------------
+Embeds **
+Reaction Roles *
+Custom text commands * (Suggestions)
+Auto and Manual Moderation **
+Twitter, Youtube, Twitch, Website and Roblox Group Shout Alerts 
+Welcoming *
+Giveaway *
+Music ***
+Leveling w/Leaderboard
+Polls *
+Command Handler Conversion ***
+GitHub Open sourcing *
+
+*** = Failed
+
+** = In Progress
+
+* = Completed
+
+
+Other Bots:
+-----------
+Bloxlink for Verification
+Dank Memer for Entertainment
+Octave For Music
+
+
+Custom Commands Include:
+------------------------
+>roleinfo *
+>links *
+>admin
+>cmds
+>staff
+>serverinfo 
+>remindme (text)
+>afk (on/off)
+>memberinfo (mention)
+>pollcreate (desc) *
+(SUGGESTIONS?)
+
+
+Moderation Features Include:
+----------------------------
+>ban
+>tempban
+>kick
+>mute
+>tempmute
+>warn
+>infractions
+>clear **
+>unban
+>unmute
+>clearinfractions
+Auto Bad Word Deletion
+Audit Logs *
+
+
+Extra:
+------
+Now we code in github bot folder. To publish we commit to master in GitHubDesktop and then publish.
+https://dashboard.heroku.com/apps/autopilotsgracioushost/logs
+https://discord.com/developers/applications/806612711453622314/bot
+Git has been downloaded, ready for management and open-sourcing. Do once popular/ppl ask for it.
+
+4 Bots so far including Autopilot, Keep this low
+Website connections in future
+Finish adding custom commands when they arise.
