@@ -41,7 +41,7 @@ bot.on('message', (message) => {
     if(message.channel.type !== 'text') return;
     let MessageArray = message.content.split(' ');
     let cmd = MessageArray[0].slice(settings.prefix.length);
-    let args = message.slice(0);
+    let args = messageArray.slice(1);
     if(!message.content.startsWith(settings.prefix)) return;
     
     if(cmd == 'links') {
