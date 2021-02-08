@@ -313,7 +313,7 @@ bot.on('message', async message => {
     const args = MessageArray.slice(1);
     
     if(cmd == 'clear') {
-
+        // to be worked on once awake
     }
 })
 
