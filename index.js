@@ -23,8 +23,6 @@ settings = {
     prefix: '>',
 };
 
-require("./util/eventHandler")(bot)
-
 bot.giveawaysManager = manager;
 
 mongoose.connect(process.env.mongodbconnect, {useNewUrlParser: true, useUnifiedTopology: true});
