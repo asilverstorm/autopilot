@@ -72,7 +72,7 @@ bot.on('message', async message => {
         .setTimestamp()
         .setDescription(pollDescription)
         .setColor('YELLOW')
-        pollChannel.send(embedPoll);
+        bot.channels.cache.get(pollChannel).send(embedPoll);
     }
 })
 
