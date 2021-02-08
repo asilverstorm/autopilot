@@ -36,11 +36,12 @@ bot.on('ready', () => {
 
 // Custom Commands
 
-bot.on('message', async (message) => {
+bot.on('message', (message) => {
     if (message.author.bot) return;
     if(message.channel.type !== 'text') return;
     let MessageArray = message.content.split(' ');
     let cmd = MessageArray[0].slice(settings.prefix.length);
+    let args = message.slice(0);
     if(!message.content.startsWith(settings.prefix)) return;
     
     if(cmd == 'links') {
@@ -306,15 +307,14 @@ bot.on('messageDelete', async message => {
 // Moderation Commands
 
 bot.on('message', async message => {
-    if (message.author.bot) return;
-    if(message.channel.type !== 'text') return;
-    let MessageArray = message.content.split(' ');
-    let cmd = MessageArray[0].slice(settings.prefix.length);
-    if(!message.content.startsWith(settings.prefix)) return;
+    if(message.author.bot || message.channel.type === "dm") return;
+    const MessageArray = message.content.split(' ');
+    const cmd = MessageArray[0].slice(settings.prefix.length);
+    const args = MessageArray.slice(1);
     
     if(cmd == 'clear') {
-        
-     }
+
+    }
 })
 
 
