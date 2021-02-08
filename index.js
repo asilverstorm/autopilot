@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const { GiveawaysManager } = require('discord-giveaways');
 const manager = new GiveawaysManager(bot, {
     storage: './giveaways.json',
-    updateCountdownEvery: 10000,
+    updateCountdownEvery: 1000,
     hasGuildMembersIntent: false,
     default: {
         botsCanWin: false,
