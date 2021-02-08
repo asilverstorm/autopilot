@@ -43,7 +43,13 @@ bot.on('message', (message) => {
     let cmd = MessageArray[0].slice(settings.prefix.length);
     if(!message.content.startsWith(settings.prefix)) return;
     if(cmd == 'links') {
-        message.channel.send(`***Hey, there, <@${message.author.id}>! We have numerous connections for Silver-Studios! Consider giving us a follow on our social media, or donate to us.*** :grin:\n\n:video_game: __Roblox:__ <https://web.roblox.com/groups/5068592/Silver-Studios>\n:bird: __Twitter:__ <https://twitter.com/silverstudios9>\n:red_circle: __YouTube:__ <https://www.youtube.com/channel/UC9jauBokYcaxt5EjTUXPJOA>\n:desktop: __Website:__ <https://silver-studios.xyz>\n:moneybag: __Patreon:__ <https://patreon.com/SilverStudios>\n:e_mail: __Discord Invite:__ <https://dsc.gg/Silver-Studios>\n\n*Feel free to go to our website if you want to buy our merch or any benefits for Discord or our games. People who wish to formally contact us or submit an application are also urged to visit our website.*\n------------------------------------------`);
+        let embed = new Discord.MessageEmbed()
+        .setTitle('Hey, there! We have numerous connections for Silver-Studios! Here they are below. :grin:')
+        .setTimestamp()
+        .setDescription(`:video_game: __Roblox:__ <https://web.roblox.com/groups/5068592/Silver-Studios>\n:bird: __Twitter:__ <https://twitter.com/silverstudios9>\n:red_circle: __YouTube:__ <https://www.youtube.com/channel/UC9jauBokYcaxt5EjTUXPJOA>\n:desktop: __Website:__ <https://silver-studios.xyz>\n:moneybag: __Patreon:__ <https://patreon.com/SilverStudios>\n:e_mail: __Discord Invite:__ <https://dsc.gg/Silver-Studios>\n\n*Feel free to go to our website if you want to buy our merch or any benefits for Discord or our games. People who wish to formally contact us or submit an application are also urged to visit our website.*\n------------------------------------------`)
+        .setColor('BLUE')
+        bot.channels.cache.get(message.channel).send(`<@${message.author.id}>`)
+        bot.channels.cache.get(message.channel).send(embed);
     }
 })
 
@@ -72,9 +78,13 @@ bot.on('message', async message => {
         .setTimestamp()
         .setDescription(pollDescription)
         .setColor('YELLOW')
-        bot.channels.cache.get(pollChannel).send(embedPoll);
+        await bot.channels.cache.get(pollChannel).send(embedPoll);
+        // Edit reactions below if poll depends on it
+        await embedPoll.react('👍')
+        await embedPoll.react('👎')
     }
 })
+
 
 
 // Welcome and Leave Messaging
