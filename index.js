@@ -65,7 +65,7 @@ bot.on('message', async message => {
     const cmd = MessageArray[0].slice(settings.prefix.length);
     const args = MessageArray.slice(1);
     if(cmd == 'pollcreate') {
-        let pollDescription = args.slice(1).join(' ');
+        let pollDescription = args.slice(0).join(' ');
         let pollChannel = '724408779097112586';
         let embedPoll = new Discord.MessageEmbed()
         .setTitle('New Poll')
