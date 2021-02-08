@@ -102,7 +102,7 @@ bot.on('guildMemberRemove', async member => {
     .setColor("BLACK")
     .setTimestamp()
     .setFooter(`${member.guild.memberCount} Members Remain`)
-    bot.channels.cache.get(channelID).send(embed)
+    channel.name('mod-logs').send(embed)
 })
 
 // Reaction Roles
