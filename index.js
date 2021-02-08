@@ -25,7 +25,7 @@ settings = {
 
 bot.giveawaysManager = manager;
 
-mongoose.connect(process.env.mongodbconnect, {useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect(process.env.mongodbconnect, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Getting Bot Ready
 
