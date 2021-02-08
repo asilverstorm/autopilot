@@ -37,8 +37,7 @@ bot.on('ready', () => {
 // Custom Commands
 
 bot.on('message', async (message) => {
-    if (message.author.bot) return;
-    if(message.channel.type !== 'text') return;
+    if(message.channel.type == 'dm' || message.author.bot) return;
     let MessageArray = message.content.split(' ');
     let cmd = MessageArray[0].slice(settings.prefix.length);
     let args = MessageArray.slice(1);
@@ -109,7 +108,7 @@ bot.on('guildMemberRemove', async member => {
 // Reaction Roles
 
 bot.on("message", async message => {
-    if(message.channel.type !== 'text') return;
+    if(message.channel.type == 'dm' || message.author.bot) return;
     if(message.author.id !== '594371388228239370') return;
     let channelID = '724391331132342353';
     let MessageArray = message.content.split(' ');
@@ -306,14 +305,30 @@ bot.on('messageDelete', async (message) => {
 
 // Moderation Commands
 
-bot.on('message', async message => {
+bot.on('message', async (bot, message, args) => {
     if(message.author.bot || message.channel.type === "dm") return;
-    const MessageArray = message.content.split(' ');
-    const cmd = MessageArray[0].slice(settings.prefix.length);
-    const args = MessageArray.slice(1);
-    
+    let MessageArray = message.content.split(' ');
+    let cmd = MessageArray[0].slice(settings.prefix.length);
+    let args = message.content.substring(message.content.indexOf(' ')+1);
+    let channelID = '';
+
     if(cmd == 'clear') {
-        // to be worked on once awake
+        let deleteAmount;
+        if(!message.author.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You do not have the required permissions!');
+        if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please put a number only!') }
+        if (parseInt(args[0]) > 100) {
+            return message.reply('You can only delete 100 messages at a time!')
+        } else {
+            deleteAmount = parseInt(args[0]);
+        }
+    
+        message.channel.bulkDelete(deleteAmount + 1, true);
+        let embed = new Discord.MessageEmbed()
+        .setTitle('Bulk Messages Deleted')
+        .setDescription(`${deleteAmount} Messages Deleted in ${message.author.channel}`)
+        .setColor("ORANGE")
+        .setTimestamp()
+        bot.channels.cache.get(channelID).send(embed)
     }
 })
 
