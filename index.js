@@ -322,7 +322,7 @@ bot.on('message', async message => {
     const cmd = MessageArray[0].slice(settings.prefix.length);
     const args = MessageArray.slice(1);
     if(cmd == 'clear') {
-        let deleteAmount = args.slice(0);
+        let deleteAmount = args.slice(1);
 
         if (message.deletable) {
             message.delete();
