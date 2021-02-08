@@ -306,10 +306,10 @@ bot.on('messageDelete', async (message) => {
 // Moderation Commands
 
 bot.on('message', async (bot, message) => {
+    const messageArray = message.content.split(' ');
+	const args = messageArray.slice(1);
     if(message.author.bot || message.channel.type === "dm") return;
-    let MessageArray = message.content.split(' ');
     let cmd = MessageArray[0].slice(settings.prefix.length);
-    let args = message.content.substring(message.content.indexOf(' ')+1);
     let channelID = '807830104880316456';
 
     if(cmd == 'clear') {
