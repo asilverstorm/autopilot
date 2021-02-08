@@ -48,8 +48,8 @@ bot.on('message', (message) => {
         .setTimestamp()
         .setDescription(`:video_game: __Roblox:__ <https://web.roblox.com/groups/5068592/Silver-Studios>\n:bird: __Twitter:__ <https://twitter.com/silverstudios9>\n:red_circle: __YouTube:__ <https://www.youtube.com/channel/UC9jauBokYcaxt5EjTUXPJOA>\n:desktop: __Website:__ <https://silver-studios.xyz>\n:moneybag: __Patreon:__ <https://patreon.com/SilverStudios>\n:e_mail: __Discord Invite:__ <https://dsc.gg/Silver-Studios>\n\n*Feel free to go to our website if you want to buy our merch or any benefits for Discord or our games. People who wish to formally contact us or submit an application are also urged to visit our website.*\n------------------------------------------`)
         .setColor('BLUE')
-        bot.channels.cache.get(message.channel).send(`<@${message.author.id}>`)
-        bot.channels.cache.get(message.channel).send(embed);
+        message.channel.send(`<@${message.author.id}>`)
+        message.channel.send(embed);
     }
 })
 
