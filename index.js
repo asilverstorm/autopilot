@@ -89,7 +89,7 @@ bot.on('guildMemberAdd', async member => {
     .setColor("GREEN")
     .setTimestamp()
     .setFooter(`Thats it! Have fun! | User #${member.guild.memberCount}`)
-    .setThumbnail(`https://postimg.cc/7CJrSsy9`)
+    .setThumbnail(`https://i.postimg.cc/BQrBHwgf/Silver-Studios-Logo.png`)
     bot.channels.cache.get(channelID).send(`<@${member.id}>`)
     bot.channels.cache.get(channelID).send(embed)
 })
