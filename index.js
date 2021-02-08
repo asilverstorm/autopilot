@@ -315,9 +315,9 @@ bot.on('message', async (bot, message) => {
     if(cmd == 'clear') {
         let deleteAmount;
         if(!message.author.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You do not have the required permissions!');
-        if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please put a number only!') }
+        if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.send('Please put a number only!') }
         if (parseInt(args[0]) > 100) {
-            return message.reply('You can only delete 100 messages at a time!')
+            return message.send('You can only delete 100 messages at a time!')
         } else {
             deleteAmount = parseInt(args[0]);
         }
