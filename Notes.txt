@@ -66,6 +66,7 @@ https://dashboard.heroku.com/apps/autopilotsgracioushost/logs
 https://discord.com/developers/applications/806612711453622314/bot
 Git has been downloaded, ready for management and open-sourcing. Do once popular/ppl ask for it.
 
-4 Bots so far including Autopilot, Keep this low
-Website connections in future
+4 Bots so far including Autopilot, Keep this low.
+Website connections in future.
 Finish adding custom commands when they arise.
+Research Git and MongoDB.
