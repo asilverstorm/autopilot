@@ -1,0 +1,1 @@
+Hey, there. I am open-sourcing this bot to help others making their own. My bot does not have a command handler, everything is organized in the index.js file. Yes, some things may be weird but don't pay mind to it. I ask that you don't directly copy my bot but try and learn from it. If you do, however, give credit where due.
