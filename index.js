@@ -5,7 +5,7 @@
 
 const Discord = require('discord.js');
 const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');                                                                        TEMP
 const { GiveawaysManager } = require('discord-giveaways');
 const manager = new GiveawaysManager(bot, {
     storage: './giveaways.json',
@@ -25,7 +25,7 @@ settings = {
 
 bot.giveawaysManager = manager;
 
-//mongoose.connect(process.env.mongodbconnect, {useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect(process.env.mongodbconnect, {useNewUrlParser: true, useUnifiedTopology: true});               TEMP
 
 // Getting Bot Ready
 
