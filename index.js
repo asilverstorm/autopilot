@@ -36,7 +36,7 @@ bot.on('ready', () => {
 
 // Custom Commands
 
-bot.on('message', (message) => {
+bot.on('message', async (message) => {
     if (message.author.bot) return;
     if(message.channel.type !== 'text') return;
     let MessageArray = message.content.split(' ');
