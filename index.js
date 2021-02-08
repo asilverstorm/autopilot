@@ -305,7 +305,7 @@ bot.on('messageDelete', async (message) => {
 
 // Moderation Commands
 
-bot.on('message', async (bot, message, args) => {
+bot.on('message', async (bot, message) => {
     const messageArray = message.content.split(' ');
 	const args = messageArray.slice(1);
     if(message.author.bot || message.channel.type === "dm") return;
