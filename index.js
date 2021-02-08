@@ -310,7 +310,7 @@ bot.on('message', async (bot, message) => {
     let MessageArray = message.content.split(' ');
     let cmd = MessageArray[0].slice(settings.prefix.length);
     let args = message.content.substring(message.content.indexOf(' ')+1);
-    let channelID = '';
+    let channelID = '807830104880316456';
 
     if(cmd == 'clear') {
         let deleteAmount;
