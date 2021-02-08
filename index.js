@@ -316,6 +316,33 @@ bot.on('messageDelete', async message => {
         bot.channels.cache.get(channelID).send(embed)
 })
 
+// Moderation Commands
+
+bot.on('message', async message => {
+    if(message.author.bot || message.channel.type === "dm") return;
+    const MessageArray = message.content.split(' ');
+    const cmd = MessageArray[0].slice(settings.prefix.length);
+    const args = MessageArray.slice(1);
+    if(cmd == 'clear') {
+        let deleteAmount = args.slice(0);
+
+        if (message.deletable) {
+            message.delete();
+        }
+
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+            return message.reply("Missing Permissions!").then(m => m.delete(5000));
+        }
+
+        if (isNaN(args[0]) || parseInt(args[0]) <= 0) {
+            return message.reply("This is not a number").then(m => m.delete(5000));
+        }
+
+        message.channel.bulkDelete(deleteAmount, true)
+        .catch(err => message.reply(`Something went wrong... ${err}`));
+     }
+})
+
 
 // DO NOT TOUCH
 bot.login(process.env.token);
