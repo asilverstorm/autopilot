@@ -39,9 +39,9 @@ bot.on('ready', () => {
 bot.on('message', async message => {
     if(message.channel.type == 'dm') return;
     if(message.author.bot) return;
-    let MessageArray = message.content.split(' ');
-    let cmd = MessageArray[0].slice(settings.prefix.length);
-    let args = MessageArray.slice(1);
+    const MessageArray = message.content.split(' ');
+    const cmd = MessageArray[0].slice(settings.prefix.length);
+    const args = MessageArray.slice(1);
     if(!message.content.startsWith(settings.prefix)) return;
     
     if(cmd == 'links') {
