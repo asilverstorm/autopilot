@@ -310,7 +310,7 @@ bot.on('messageUpdate', async (oldMessage, newMessage) => {
         .setTitle('Message Edited')
         .setDescription(`Old Message: ${oldMessage}\n\nNew Message: ${newMessage}\n\nIn Channel: ${newMessage.channel.name}`)
         .setColor("AQUA")
-        .setAuthor(newMessage.author.tag, newMessage.author.avatarURL)
+        .setAuthor(newMessage.author.tag, newMessage.author.avatarURL())
         .setTimestamp()
         bot.channels.cache.get(channelID).send(embed)
 })
