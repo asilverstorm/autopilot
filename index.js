@@ -102,7 +102,7 @@ bot.on('guildMemberRemove', async (member, bot) => {
     .setColor("BLACK")
     .setTimestamp()
     .setFooter(`${member.guild.memberCount} Members Remain`)
-    const leavemsg = client.channels.cache.get(channelID);
+    const leavemsg = bot.channels.cache.get(channelID);
         await leavemsg.send(embed);
 })
 
@@ -307,8 +307,8 @@ bot.on('messageDelete', async (message) => {
 // Moderation Commands
 
 bot.on('message', async (bot, message) => {
-    const messageArray = message.content.split(' ');
-	const args = messageArray.slice(1);
+    let MessageArray = message.content.split(' ');
+	let args = MessageArray.slice(1);
     if(message.author.bot || message.channel.type === "dm") return;
     let cmd = MessageArray[0].slice(settings.prefix.length);
     let channelID = '807830104880316456';
