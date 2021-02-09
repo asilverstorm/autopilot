@@ -36,7 +36,7 @@ bot.on('ready', () => {
 
 // Custom Commands
 
-bot.on('message', async (message) => {
+bot.on('message', async (bot, message) => {
     if(message.channel.type == 'dm' || message.author.bot) return;
     let MessageArray = message.content.split(' ');
     let cmd = MessageArray[0].slice(settings.prefix.length);
@@ -72,6 +72,25 @@ bot.on('message', async (message) => {
         if (message.author.id !== '594371388228239370') return;
         message.channel.send(`***We have many roles for you to apply for, earn, and even give yourself! See a list of each role and what they do below :point_down:***\n\n*Staff Roles*\n-\n<@&727595225123651625>: __You are a friend of the Owner__\n<@&806731297640808448>: __Role given to all staff, including developers__\n<@&805675536130113547>: __You moderate the discord and other group chats we have__\n<@&631316263066664961>: __You moderate the games and are supervisors in the Discord__\n<@&631323272927248384>: __You help program our games, website, or Discord bot__\n\n*Special Roles*\n-\n<@&723353782502817892>: __You have donated once or more in the past__\n<@&631323854593196058>: __You have bought this role from our website__\n<@&723353663770329233>: __You have the standard plan in our Patreon__\n<@&723356769878802494>: __You have the premium plan in our Patreon__\n\n*Main Roles*\n-\n<@&631317435651325962>: __You help test our game, website, or Discord bot.__\n<@&631323469937770506>: __You have partnered with us as a Content Creator__\n<@&650854575364112405>: __You have partnered your own group with us__\n<@&707647379335020554>: __You are a verified member of Silver-Studios__\n<@&646420979370688512>: __You have won a giveaway before__\n<@&727590400046661694>: __You have signed up to get pinged for announcements__\n<@&733815838859329567>: __You are not verified__`);
         message.channel.send(`*Device Roles*\n-\n<@&631543640686067732>: __You mainly play on a gaming console__\n<@&631543559555645452>: __You mainly play on a mobile device__\n<@&631543445650931742>: __You mainly play on a desktop or laptop__\n\n*Region Roles*\n-\n<@&707954981348573259>: __You live in the US__\n<@&707955171640082432>: __You live in Europe__\n<@&707955415006183525>: __You live in an Oceania region__\n<@&707955552323633162>: __You live in South America__\n<@&707955059551371324>: __You live in Canada__\n<@&707955305908142116>: __You live in Asia__\n<@&707955454914986054>: __You live in Africa__\n<@&707955123174899806>: __You live in Mexico__\n\n:clipboard: **To apply for a role, please visit our website and fill out an application. Next, scroll down and give YOURSELF the relevant roles. Thanks, <@everyone>!**`);
+    }
+
+    if(cmd == 'clear') {
+        let deleteAmount;
+        if(!message.author.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You do not have the required permissions!');
+        if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.send('Please put a number only!') }
+        if (parseInt(args[0]) > 100) {
+            return message.send('You can only delete 100 messages at a time!')
+        } else {
+            deleteAmount = parseInt(args[0]);
+        }
+    
+        message.channel.bulkDelete(deleteAmount + 1, true);
+        let embed = new Discord.MessageEmbed()
+        .setTitle('Bulk Messages Deleted')
+        .setDescription(`${deleteAmount} Messages Deleted in ${message.author.channel}`)
+        .setColor("ORANGE")
+        .setTimestamp()
+        bot.channels.cache.get(channelID).send(embed)
     }
 })
 
@@ -302,35 +321,6 @@ bot.on('messageDelete', async (message) => {
         .setAuthor(message.author.tag)
         .setTimestamp()
         bot.channels.cache.get(channelID).send(embed)
-})
-
-// Moderation Commands
-
-bot.on('message', async (bot, message) => {
-    let MessageArray = message.content.split(' ');
-	let args = MessageArray.slice(1);
-    if(message.author.bot || message.channel.type === "dm") return;
-    let cmd = MessageArray[0].slice(settings.prefix.length);
-    let channelID = '807830104880316456';
-
-    if(cmd == 'clear') {
-        let deleteAmount;
-        if(!message.author.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You do not have the required permissions!');
-        if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.send('Please put a number only!') }
-        if (parseInt(args[0]) > 100) {
-            return message.send('You can only delete 100 messages at a time!')
-        } else {
-            deleteAmount = parseInt(args[0]);
-        }
-    
-        message.channel.bulkDelete(deleteAmount + 1, true);
-        let embed = new Discord.MessageEmbed()
-        .setTitle('Bulk Messages Deleted')
-        .setDescription(`${deleteAmount} Messages Deleted in ${message.author.channel}`)
-        .setColor("ORANGE")
-        .setTimestamp()
-        bot.channels.cache.get(channelID).send(embed)
-    }
 })
 
 
