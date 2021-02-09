@@ -63,6 +63,8 @@ bot.on('message', async message => {
         .setTimestamp()
         .setDescription(pollDescription)
         .setColor('YELLOW')
+        .setAuthor(message.author.tag, message.author.avatarURL())
+        await bot.channels.cache.get(channelID).send('<@&727590400046661694>')
         await bot.channels.cache.get(channelID).send(embed).then(sentEmbed => {
             sentEmbed.react('👍');
             sentEmbed.react('👎');
