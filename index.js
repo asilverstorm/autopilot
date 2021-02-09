@@ -102,7 +102,8 @@ bot.on('guildMemberRemove', async (member, bot) => {
     .setColor("BLACK")
     .setTimestamp()
     .setFooter(`${member.guild.memberCount} Members Remain`)
-    bot.channels.cache.get(channelID).send(embed)
+    const leavemsg = client.channels.cache.get(channelID);
+        await leavemsg.send(embed);
 })
 
 // Reaction Roles
