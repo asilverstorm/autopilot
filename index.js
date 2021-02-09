@@ -36,7 +36,7 @@ bot.on('ready', () => {
 
 // Commands
 
-bot.on('message', async (bot, message, args) => {
+bot.on('message', async (bot, message) => {
     if(message.channel.type == 'dm') return;
     if(message.author.bot) return;
     let MessageArray = message.content.split(' ');
