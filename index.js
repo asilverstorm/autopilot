@@ -323,7 +323,7 @@ bot.on('messageDelete', async (message) => {
         .setTitle('Message Deleted')
         .setDescription(`Deleted Message: ${message}\n\nIn Channel: ${message.channel}`)
         .setColor("ORANGE")
-        .setAuthor(message.author.tag, message.author.avatarURL)
+        .setAuthor(message.author.tag, message.author.avatarURL())
         .setTimestamp()
         bot.channels.cache.get(channelID).send(embed)
 })
