@@ -34,10 +34,11 @@ bot.on('ready', () => {
 });
 
 
-// Custom Commands
+// Commands
 
-bot.on('message', async (bot, message) => {
-    if(message.channel.type == 'dm' || message.author.bot) return;
+bot.on('message', async (bot, message, args) => {
+    if(message.channel.type == 'dm') return;
+    if(message.author.bot) return;
     let MessageArray = message.content.split(' ');
     let cmd = MessageArray[0].slice(settings.prefix.length);
     let args = MessageArray.slice(1);
@@ -87,7 +88,7 @@ bot.on('message', async (bot, message) => {
  
         await message.channel.messages.fetch({ limit: args[0]}).then(messages =>{
             message.channel.bulkDelete(messages)
-            
+
             let embed = new Discord.MessageEmbed()
             .setTitle('Bulk Messages Deleted')
             .setDescription(`${deleteAmount} Messages Deleted in ${message.author.channel}`)
