@@ -75,16 +75,18 @@ bot.on('message', async (bot, message) => {
     }
 
     if(cmd == 'clear') {
-        let deleteAmount;
-        if(!message.author.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You do not have the required permissions!');
-        if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.send('Please put a number only!') }
-        if (parseInt(args[0]) > 100) {
-            return message.send('You can only delete 100 messages at a time!')
-        } else {
-            deleteAmount = parseInt(args[0]);
-        }
-    
-        message.channel.bulkDelete(deleteAmount + 1, true);
+        let channelID = ('807830104880316456')
+        if(!message.author.permissions.has("MANAGE_MESSAGES")) return message.reply('You do not have the required permissions!');
+        if (!args[0]) return message.reply("Please enter the amount of messages to clear!");
+ 
+        if(isNaN(args[0])) return message.reply("Please type a real number!");
+ 
+        if(args[0] > 100) return message.reply("You can't remove more than 100 messages!");
+        
+        if(args[0] < 1) return message.reply("You have to delete at least one message!");
+ 
+        await message.channel.messages.fetch({ limit: args[0]}).then(messages =>{
+            message.channel.bulkDelete(messages)
         let embed = new Discord.MessageEmbed()
         .setTitle('Bulk Messages Deleted')
         .setDescription(`${deleteAmount} Messages Deleted in ${message.author.channel}`)
