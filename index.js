@@ -78,7 +78,7 @@ bot.on('message', async message => {
 
     if(cmd == 'clear') {
         let channelID = ('807830104880316456')
-        if(!message.author.permissions.has("MANAGE_MESSAGES")) return message.reply('You do not have the required permissions!');
+        if (!message.member.roles.has('806731297640808448')) return;
         if (!args[0]) return message.reply("Please enter the amount of messages to clear!");
  
         if(isNaN(args[0])) return message.reply("Please type a real number!");
