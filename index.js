@@ -87,12 +87,14 @@ bot.on('message', async (bot, message) => {
  
         await message.channel.messages.fetch({ limit: args[0]}).then(messages =>{
             message.channel.bulkDelete(messages)
-        let embed = new Discord.MessageEmbed()
-        .setTitle('Bulk Messages Deleted')
-        .setDescription(`${deleteAmount} Messages Deleted in ${message.author.channel}`)
-        .setColor("ORANGE")
-        .setTimestamp()
-        bot.channels.cache.get(channelID).send(embed)
+            
+            let embed = new Discord.MessageEmbed()
+            .setTitle('Bulk Messages Deleted')
+            .setDescription(`${deleteAmount} Messages Deleted in ${message.author.channel}`)
+            .setColor("ORANGE")
+            .setTimestamp()
+            bot.channels.cache.get(channelID).send(embed)
+        })
     }
 })
 
