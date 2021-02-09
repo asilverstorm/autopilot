@@ -51,7 +51,7 @@ Moderation Features Include:
 >tempmute
 >warn
 >infractions
->clear **
+>clear *
 >unban
 >unmute
 >clearinfractions
@@ -70,3 +70,4 @@ Git has been downloaded, ready for management and open-sourcing. Do once popular
 Website connections in future.
 Finish adding custom commands when they arise.
 Research Git and MongoDB.
+Bugs fixed and commands organized currently.
