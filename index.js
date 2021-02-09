@@ -56,17 +56,18 @@ bot.on('message', async message => {
 
     if(cmd == 'pollcreate') {
         let pollDescription = args.slice(0).join(' ');
-        let pollChannel = '724408779097112586';
+        let channelID = '724408779097112586';
         if (message.author.id !== '594371388228239370') return;
-        let embedPoll = new Discord.MessageEmbed()
+        let embed = new Discord.MessageEmbed()
         .setTitle('New Poll')
         .setTimestamp()
         .setDescription(pollDescription)
         .setColor('YELLOW')
-        await bot.channels.cache.get(pollChannel).send(embedPoll);
-        // Edit reactions below if poll depends on it
-        await embedPoll.react('👍')
-        await embedPoll.react('👎')
+        await bot.channels.cache.get(channelID).send(embed).then(sentEmbed => {
+            sentEmbed.react('👍');
+            sentEmbed.react('👎');
+        })
+        // Edit reactions above if poll depends on it
     }
 
     if(cmd == 'rolesinfo') {
