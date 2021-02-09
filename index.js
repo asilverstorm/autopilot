@@ -94,14 +94,15 @@ bot.on('guildMemberAdd', async member => {
     bot.channels.cache.get(channelID).send(embed)
 })
 
-bot.on('guildMemberRemove', async member => {
+bot.on('guildMemberRemove', async (member, bot, channels, cache, partials) => {
+    let channelID = ('806731791062925373');
     let embed = new Discord.MessageEmbed()
     .setTitle(`Mod Logs | Member Left`)
     .setDescription(`User <@${member.id}> has left the server`)
     .setColor("BLACK")
     .setTimestamp()
     .setFooter(`${member.guild.memberCount} Members Remain`)
-    bot.channels.cache.get('806731791062925373').send(embed)
+    bot.channels.cache.get(channelID).send(embed)
 })
 
 // Reaction Roles
