@@ -81,7 +81,11 @@ bot.on('message', async message => {
     if(cmd == 'clear') {
         let channelID = ('807830104880316456')
 
-        if (!args[0]) return message.reply("Please enter the amount of messages to clear!");
+        if(message.member.roles.cache.find(r => r.name === "Staff")) {
+            return message.reply("You do not have permission to use this command!")
+        } 
+
+        if(!args[0]) return message.reply("Please enter the amount of messages to clear!");
  
         if(isNaN(args[0])) return message.reply("Please type a real number!");
  
