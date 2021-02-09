@@ -94,7 +94,7 @@ bot.on('guildMemberAdd', async member => {
     bot.channels.cache.get(channelID).send(embed)
 })
 
-bot.on('guildMemberRemove', async (member, bot, channels, cache, partials) => {
+bot.on('guildMemberRemove', async (member, bot) => {
     let channelID = ('806731791062925373');
     let embed = new Discord.MessageEmbed()
     .setTitle(`Mod Logs | Member Left`)
