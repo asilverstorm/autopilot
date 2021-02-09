@@ -92,7 +92,7 @@ bot.on('message', async message => {
 
             let embed = new Discord.MessageEmbed()
             .setTitle('Bulk Messages Deleted')
-            .setDescription(`${args} Messages Deleted in ${message.author.channel}`)
+            .setDescription(`${args} Messages Deleted in ${message.channel}`)
             .setColor("ORANGE")
             .setTimestamp()
             bot.channels.cache.get(channelID).send(embed)
