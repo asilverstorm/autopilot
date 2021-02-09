@@ -57,7 +57,9 @@ bot.on('message', async message => {
     if(cmd == 'pollcreate') {
         let pollDescription = args.slice(0).join(' ');
         let channelID = '724408779097112586';
-        if (message.author.id !== '594371388228239370') return;
+        if(!message.member.roles.cache.find(r => r.name === "Staff")) {
+            return message.reply("You do not have permission to use this command!")
+        }
         let embed = new Discord.MessageEmbed()
         .setTitle('New Poll')
         .setTimestamp()
