@@ -81,7 +81,7 @@ bot.on('message', async message => {
     if(cmd == 'clear') {
         let channelID = ('807830104880316456')
 
-        if(message.member.roles.cache.find(r => r.name === "Staff")) {
+        if(!message.member.roles.cache.find(r => r.name === "Staff")) {
             return message.reply("You do not have permission to use this command!")
         } 
 
