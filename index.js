@@ -338,4 +338,4 @@ bot.on('messageDelete', async (message) => {
 
 
 // DO NOT TOUCH
-bot.login(process.env.token);
+bot.login(process.env.token); 
